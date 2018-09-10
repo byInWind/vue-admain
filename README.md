@@ -19,3 +19,5 @@ npm run build
 ```
 npm run lint
 ```
+vue-cli3.x + vue-element + vue-router
+第1天  基础组件的自动化全局注册
