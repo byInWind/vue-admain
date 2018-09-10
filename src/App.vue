@@ -5,10 +5,8 @@
                 <el-menu :default-openeds="['1', '3']">
                     <el-submenu v-for="item in navs" :index="item.id" :key="item.id">
                         <template slot="title"><i :class="item.class"></i>{{item.name}}</template>
-                        <el-menu-item v-for="item in item.childeItem" :index="item.id" :key="item.id">
+                        <el-menu-item v-for="item in item.childeItem" :index="item.id" :key="item.id" @click="change_router(item.path)">
                             {{item.name}}
-                            <!--<router-link :to="item.path" tap="span"></router-link>-->
-                            <!--<router-view></router-view>-->
                         </el-menu-item>
                     </el-submenu>
                 </el-menu>
@@ -45,7 +43,12 @@
         components: {
             HelloWorld
         },
-        methods: {},
+        methods: {
+            change_router: function (path) {
+                console.log(11)
+                this.$router.push(path)
+            }
+        },
         data: function () {
             return {
                 items: [],
@@ -58,7 +61,7 @@
                             {
                                 id: "1-1",
                                 name: "Table",
-                                path: ""
+                                path: "table"
                             }, {
                                 id: "1-2",
                                 name: "Tree",
