@@ -19,5 +19,7 @@ npm run build
 ```
 npm run lint
 ```
-vue-cli3.x + vue-element + vue-router
-第1天  基础组件的自动化全局注册
+使用了vue-cli3.x + vue-element + vue-router  
+提交记录  
+第1天  了解基础组件的自动化全局注册  
+第二天 试用element
