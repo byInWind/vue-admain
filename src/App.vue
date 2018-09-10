@@ -3,62 +3,14 @@
         <el-container style="position: relative;height: 100%;width: 100%; border: 1px solid #eee">
             <el-aside width="200px" style="background-color: rgb(238, 241, 246)">
                 <el-menu :default-openeds="['1', '3']">
-                    <el-submenu index="1" v-for="item in items">
-                        <template slot="title"><i class="el-icon-message"></i>Example</template>
-                        <el-menu-item index="1-1">Table</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
+                    <el-submenu v-for="item in navs" :index="item.id" :key="item.id">
+                        <template slot="title"><i :class="item.class"></i>{{item.name}}</template>
+                        <el-menu-item v-for="item in item.childeItem" :index="item.id" :key="item.id">
+                            {{item.name}}
+                            <!--<router-link :to="item.path" tap="span"></router-link>-->
+                            <!--<router-view></router-view>-->
+                        </el-menu-item>
                     </el-submenu>
-                    <el-submenu index="2">
-                        <template slot="title"><i class="el-icon-menu"></i>导航二</template>
-                        <el-menu-item index="2-1">选项1</el-menu-item>
-                        <el-menu-item index="2-2">选项2</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="3">
-                        <template slot="title"><i class="el-icon-menu"></i>菜单实例</template>
-                        <el-submenu index="3-1">
-                            <template slot="title">菜单1</template>
-                            <el-menu-item index="3-1-1">菜单1-1</el-menu-item>
-                            <el-menu-item index="3-1-2">菜单1-2</el-menu-item>
-                        </el-submenu>
-                        <el-submenu index="3-2">
-                            <template slot="title">菜单2</template>
-                            <el-menu-item index="3-2-1">菜单2-1</el-menu-item>
-                            <el-submenu index="3-2-2">
-                                <template slot="title">菜单2-2</template>
-                                <el-menu-item index="3-2-2-1">菜单2-2-1</el-menu-item>
-                                <el-menu-item index="3-2-2-2">菜单2-2-2</el-menu-item>
-                            </el-submenu>
-                        </el-submenu>
-                    </el-submenu>
-                    <!--
-                     <el-submenu index="1">
-                        <template slot="title"><i class="el-icon-message"></i>Example</template>
-                        <el-menu-item index="1-1">Table</el-menu-item>
-                        <el-menu-item index="1-2">选项2</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="2">
-                        <template slot="title"><i class="el-icon-menu"></i>导航二</template>
-                        <el-menu-item index="2-1">选项1</el-menu-item>
-                        <el-menu-item index="2-2">选项2</el-menu-item>
-                    </el-submenu>
-                    <el-submenu index="3">
-                        <template slot="title"><i class="el-icon-menu"></i>菜单实例</template>
-                        <el-submenu index="3-1">
-                            <template slot="title">菜单1</template>
-                            <el-menu-item index="3-1-1">菜单1-1</el-menu-item>
-                            <el-menu-item index="3-1-2">菜单1-2</el-menu-item>
-                        </el-submenu>
-                        <el-submenu index="3-2">
-                            <template slot="title">菜单2</template>
-                            <el-menu-item index="3-2-1">菜单2-1</el-menu-item>
-                            <el-submenu index="3-2-2">
-                                <template slot="title">菜单2-2</template>
-                                <el-menu-item index="3-2-2-1">菜单2-2-1</el-menu-item>
-                                <el-menu-item index="3-2-2-2">菜单2-2-2</el-menu-item>
-                            </el-submenu>
-                        </el-submenu>
-                    </el-submenu>
-                    -->
                 </el-menu>
             </el-aside>
 
@@ -79,7 +31,6 @@
                     <router-link tag="span" to="/home">to home</router-link>
                     <router-link to="/about">to about</router-link>
                     <router-view></router-view>
-                    <HelloWorld></HelloWorld>
                 </el-main>
             </el-container>
         </el-container>
@@ -97,7 +48,71 @@
         methods: {},
         data: function () {
             return {
-                items: []
+                items: [],
+                navs: [
+                    {
+                        id: "1",
+                        name: "Example",
+                        class: "el-icon-more",
+                        childeItem: [
+                            {
+                                id: "1-1",
+                                name: "Table",
+                                path: ""
+                            }, {
+                                id: "1-2",
+                                name: "Tree",
+                                path: ""
+                            }
+                        ]
+                    },
+                    {
+                        id: "2", name: "Form",
+                        class: "el-icon-edit-outline",
+                        childeItem: [
+                            {
+                                id: "2-1",
+                                name: "form",
+                                path: ""
+                            }
+                        ]
+                    },
+                    {
+                        id: "3", name: "菜单实例",
+                        class: "el-icon-menu",
+                        childeItem: [
+                            {
+                                id: "3-1",
+                                name: "菜单1",
+                                childeItem: [
+                                    {
+                                        id: "3-1-1",
+                                        name: "菜单1",
+                                        path: ""
+                                    }, {
+                                        id: "3-1-2",
+                                        name: "菜单2",
+                                        path: ""
+                                    }
+                                ]
+                            }, {
+                                id: "3-2",
+                                name: "菜单2",
+                                childeItem: [
+                                    {
+                                        id: "3-2-1",
+                                        name: "菜单1",
+                                        path: ""
+                                    }, {
+                                        id: "3-2-2",
+                                        name: "菜单2",
+                                        path: ""
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
             }
         }
     }
