@@ -5,9 +5,21 @@
                 <el-menu :default-openeds="['1', '3']">
                     <el-submenu v-for="item in navs" :index="item.id" :key="item.id">
                         <template slot="title"><i :class="item.class"></i>{{item.name}}</template>
-                        <el-menu-item v-for="item in item.childeItem" :index="item.id" :key="item.id" @click="change_router(item.path)">
-                            {{item.name}}
-                        </el-menu-item>
+                        <template v-if="!item.childeItem[0].childeItem">
+                            <el-menu-item v-for="item in item.childeItem" :index="item.id" :key="item.id"
+                                          @click="change_router(item.path)">
+                                {{item.name}}
+                            </el-menu-item>
+                        </template>
+                        <template v-else>
+                            <el-submenu v-for="item in item.childeItem" :index="item.id" :key="item.id">
+                                <template slot="title">{{item.name}}</template>
+                                <el-menu-item v-for="item in item.childeItem" :index="item.id" :key="item.id"
+                                              @click="change_router(item.path)">
+                                    {{item.name}}
+                                </el-menu-item>
+                            </el-submenu>
+                        </template>
                     </el-submenu>
                 </el-menu>
             </el-aside>
@@ -36,12 +48,12 @@
 <script>
     export default {
         name: 'app',
-        components: {
-
-        },
+        components: {},
         methods: {
             change_router: function (path) {
-                this.$router.push(path)
+                if (path) {
+                    this.$router.push(path)
+                }
             }
         },
         data: function () {
