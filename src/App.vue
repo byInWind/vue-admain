@@ -26,8 +26,6 @@
                 </el-header>
 
                 <el-main>
-                    <router-link tag="span" to="/home">to home</router-link>
-                    <router-link to="/about">to about</router-link>
                     <router-view></router-view>
                 </el-main>
             </el-container>
@@ -36,12 +34,10 @@
 </template>
 
 <script>
-    import HelloWorld from './components/BaseHeader.vue'
-
     export default {
         name: 'app',
         components: {
-            HelloWorld
+
         },
         methods: {
             change_router: function (path) {
@@ -51,7 +47,6 @@
         },
         data: function () {
             return {
-                items: [],
                 navs: [
                     {
                         id: "1",
