@@ -10,6 +10,6 @@
 
 <style scoped>
     h1 {
-        color: red;
+        color: #85e7ff;
     }
 </style>

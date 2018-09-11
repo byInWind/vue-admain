@@ -6,6 +6,11 @@ Vue.use(Router)
 export default new Router({
   base: process.env.BASE_URL,
   routes: [
+      {
+          path: '/',
+          name: 'home',
+          component: () => import( '../views/Home.vue')
+      },
     {
       path: '/table',
       name: 'table',
