@@ -11,10 +11,15 @@ export default new Router({
       name: 'table',
         component: () => import( '../views/Table.vue')
     },
-    {
-      path: '/about',
-      name: 'about',
-      component: () => import( '../views/About.vue')
-    }
+      {
+          path: '/form',
+          name: 'form',
+          component: () => import( '../views/Form.vue')
+      },
+      {
+          path: '/tree',
+          name: 'tree',
+          component: () => import( '../views/Tree.vue')
+      }
   ]
 })

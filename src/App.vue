@@ -60,7 +60,7 @@
                             }, {
                                 id: "1-2",
                                 name: "Tree",
-                                path: ""
+                                path: "tree"
                             }
                         ]
                     },
@@ -71,7 +71,7 @@
                             {
                                 id: "2-1",
                                 name: "form",
-                                path: ""
+                                path: "form"
                             }
                         ]
                     },
