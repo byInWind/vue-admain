@@ -41,7 +41,6 @@
         },
         methods: {
             change_router: function (path) {
-                console.log(11)
                 this.$router.push(path)
             }
         },
@@ -65,7 +64,8 @@
                         ]
                     },
                     {
-                        id: "2", name: "Form",
+                        id: "2",
+                        name: "Form",
                         class: "el-icon-edit-outline",
                         childeItem: [
                             {
@@ -76,7 +76,8 @@
                         ]
                     },
                     {
-                        id: "3", name: "菜单实例",
+                        id: "3",
+                        name: "菜单实例",
                         class: "el-icon-menu",
                         childeItem: [
                             {
@@ -86,11 +87,9 @@
                                     {
                                         id: "3-1-1",
                                         name: "菜单1",
-                                        path: ""
                                     }, {
                                         id: "3-1-2",
                                         name: "菜单2",
-                                        path: ""
                                     }
                                 ]
                             }, {
